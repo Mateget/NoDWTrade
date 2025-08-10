@@ -9,8 +9,9 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class PixelmonEventHandler {
 	
-	@SubscribeEvent(priority = EventPriority.LOWEST)
+	@SubscribeEvent(priority = EventPriority.NORMAL)
 	public void onTradeEvent(final PixelmonTradeEvent.Pre event) {
+		if(!ConfigHandler.config.isTradingMachines()) return;
 		boolean isCancel = false;
 		if (event.getPlayer1() != null && isDWBreedable(event.getPokemon1())
 				&& !PermissionHandler.playerHasDWTradePermission(event.getPlayer1())) {

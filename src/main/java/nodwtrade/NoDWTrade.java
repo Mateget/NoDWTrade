@@ -48,6 +48,7 @@ public class NoDWTrade {
     
     @SubscribeEvent
     public void preInit(FMLServerAboutToStartEvent e) {
+    	MinecraftForge.EVENT_BUS.register(new ForgeEventHandler());
         Pixelmon.EVENT_BUS.register(new PixelmonEventHandler());
 	}
 
